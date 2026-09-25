@@ -24,13 +24,13 @@ const services = [
     title: "Glute Enhancement",
     duration: "75 MINS",
     price: "$145",
-    image: "/images/hero_portrait.jpg",
+    image: "/images/glute_enhancement.jpg",
   },
   {
     title: "Cellulite Reduction",
     duration: "45 MINS",
     price: "$115",
-    image: "/images/lymphatic_body.jpg",
+    image: "/images/cellulite_reduction.jpg",
   },
 ];
 

@@ -27,7 +27,7 @@ const allServices = [
     price: "CAD$145.00",
     slug: "glute-enhancement",
     desc: "The glute enhancement treatment is a non invasive procedure that helps lift, firm, and tone the buttocks. Using specialized techniques and equipment, it stimulates muscle activity and improves circulation, enhancing shape and contour for a more sculpted, lifted appearance.",
-    image: "/images/hero_portrait.jpg"
+    image: "/images/glute_enhancement.jpg"
   },
   {
     title: "Cellulite Reduction Therapy",
@@ -35,7 +35,7 @@ const allServices = [
     price: "CAD$115.00",
     slug: "cellulite-reduction-therapy",
     desc: "Cellulite reduction therapy on the back of the thighs targets uneven skin texture and dimpling by improving circulation and stimulating collagen production. This therapy helps smooth and firm the skin, reducing the appearance of cellulite for a more toned and refined look.",
-    image: "/images/lymphatic_body.jpg"
+    image: "/images/cellulite_reduction.jpg"
   },
   {
     title: "Abdomen Drainage",
@@ -43,7 +43,7 @@ const allServices = [
     price: "CAD$105.00",
     slug: "abdomen-drainage",
     desc: "Abdomen Lymphatic Drainage is a gentle, targeted massage technique focused exclusively on the abdominal area. Its purpose is to stimulte the lymphatic system, helping reduce bloating, ease digestive discomfort and support the bodys natural detoxification process.",
-    image: "/images/studio_atmosphere.jpg"
+    image: "/images/abdomen_drainage.jpg"
   }
 ];
 

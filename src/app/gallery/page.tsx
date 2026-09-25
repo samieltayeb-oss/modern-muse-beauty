@@ -8,6 +8,8 @@ export default function GalleryPage() {
     "/images/kobido_hands.jpg",
     "/images/lymphatic_body.jpg",
     "/images/studio_atmosphere.jpg",
+    "/images/gallery_one.jpg",
+    "/images/gallery_two.jpg",
   ];
 
   return (

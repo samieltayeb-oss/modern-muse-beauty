@@ -6,6 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+import MotionGraphic from "./MotionGraphic";
+
 export default function Manifesto() {
   const textRef = useRef<HTMLHeadingElement>(null);
   const pRef = useRef<HTMLParagraphElement>(null);
@@ -34,8 +36,14 @@ export default function Manifesto() {
   }, []);
 
   return (
-    <section ref={containerRef} className="w-full py-40 md:py-64 bg-white flex flex-col items-center justify-center px-6 border-b border-black/5">
-      <div className="max-w-5xl text-center">
+    <section ref={containerRef} className="relative w-full py-40 md:py-64 bg-white flex flex-col items-center justify-center px-6 border-b border-black/5 overflow-hidden">
+      
+      {/* Animated Motion Graphic Background */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center">
+        <MotionGraphic />
+      </div>
+
+      <div className="max-w-5xl text-center relative z-10">
         <h2 ref={textRef} className="font-serif text-5xl md:text-7xl lg:text-9xl tracking-tight leading-[1.1] text-black">
           Beauty, <br />
           <span className="italic text-black/60 font-light">considered.</span>

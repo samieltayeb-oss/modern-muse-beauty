@@ -26,7 +26,7 @@ const allServices = [
     price: "CAD$145.00",
     slug: "glute-enhancement",
     desc: "A non-invasive procedure that helps lift, firm, and tone the buttocks using specialized techniques and equipment.",
-    image: "/images/hero_portrait.jpg"
+    image: "/images/glute_enhancement.jpg"
   },
   {
     title: "Cellulite Reduction Therapy",
@@ -34,7 +34,7 @@ const allServices = [
     price: "CAD$115.00",
     slug: "cellulite-reduction-therapy",
     desc: "Targets uneven skin texture and dimpling by improving circulation and stimulating collagen production.",
-    image: "/images/lymphatic_body.jpg"
+    image: "/images/cellulite_reduction.jpg"
   },
   {
     title: "Abdomen Drainage",
@@ -42,7 +42,7 @@ const allServices = [
     price: "CAD$105.00",
     slug: "abdomen-drainage",
     desc: "A gentle, targeted massage technique focused exclusively on the abdominal area to reduce bloating and support detox.",
-    image: "/images/studio_atmosphere.jpg"
+    image: "/images/abdomen_drainage.jpg"
   }
 ];
 
