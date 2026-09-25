@@ -1,36 +1,79 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
+
 export default function Footer() {
   return (
-    <footer className="w-full bg-muse-ink text-muse-ivory py-24 md:py-32 px-6 lg:px-24 flex flex-col items-center text-center">
-      <h2 className="font-serif text-4xl md:text-6xl lg:text-[7rem] mb-16 tracking-tight leading-[1.0]">
-        Begin your <br/> transformation.
-      </h2>
+    <footer className="w-full bg-muse-stone text-muse-ink py-24 md:py-32 px-6 lg:px-24 flex flex-col relative overflow-hidden border-t border-muse-line">
       
-      <a 
-        href="https://modern-muse-beauty.square.site/"
-        target="_blank"
-        rel="noreferrer"
-        className="inline-block border border-muse-ivory/30 hover:border-muse-ivory px-16 py-6 mb-32 transition-colors duration-500"
-      >
-        <span className="font-sans text-xs tracking-[0.3em] uppercase">
-          Book an Appointment
-        </span>
-      </a>
+      {/* Top Section */}
+      <div className="flex flex-col lg:flex-row justify-between items-start mb-32 z-10 gap-16 lg:gap-0">
+        
+        {/* Left: Brand & Newsletter */}
+        <div className="w-full lg:w-1/3 flex flex-col">
+          <Link href="/" className="relative h-10 w-56 mb-12">
+            <Image
+              src="/images/logo.png"
+              alt="Modern Muse Beauty"
+              fill
+              className="object-contain object-left"
+            />
+          </Link>
+          <p className="font-sans text-sm text-muse-muted leading-loose mb-12 max-w-sm">
+            Subscribe to our private mailing list to receive exclusive editorial content, studio updates, and priority booking access.
+          </p>
+          <form className="flex border-b border-muse-ink/20 pb-2 max-w-sm">
+            <input 
+              type="email" 
+              placeholder="YOUR EMAIL" 
+              className="w-full bg-transparent font-sans text-xs tracking-[0.2em] uppercase outline-none placeholder:text-muse-muted"
+            />
+            <button type="button" className="font-sans text-xs tracking-[0.2em] uppercase hover:text-muse-muted transition-colors">
+              Join
+            </button>
+          </form>
+        </div>
 
-      <div className="w-full flex flex-col lg:flex-row justify-between items-center lg:items-end border-t border-muse-ivory/10 pt-12 text-[10px] md:text-xs font-sans tracking-[0.2em] text-muse-ivory/50 uppercase">
-        <div className="mb-8 lg:mb-0 text-center lg:text-left leading-loose">
-          <p>909 5 Ave SW</p>
-          <p>Calgary, AB T2P 3G5</p>
+        {/* Middle: Links */}
+        <div className="w-full lg:w-1/3 flex flex-col lg:items-center">
+          <div className="flex flex-col gap-6">
+            <h4 className="font-sans text-xs tracking-[0.4em] uppercase text-muse-ink mb-4">Explore</h4>
+            <Link href="/services" className="font-sans text-sm text-muse-muted hover:text-muse-ink transition-colors">Treatments</Link>
+            <Link href="/about" className="font-sans text-sm text-muse-muted hover:text-muse-ink transition-colors">The Studio</Link>
+            <Link href="/gallery" className="font-sans text-sm text-muse-muted hover:text-muse-ink transition-colors">Archive</Link>
+            <Link href="/faq" className="font-sans text-sm text-muse-muted hover:text-muse-ink transition-colors">Inquiries</Link>
+          </div>
         </div>
-        <div className="mb-8 lg:mb-0 flex flex-col md:flex-row gap-6 md:gap-12 text-center">
-          <a href="https://www.instagram.com/modernmusebeauty_yyc" target="_blank" className="hover:text-muse-ivory transition-colors">Instagram</a>
-          <a href="/contact" className="hover:text-muse-ivory transition-colors">Contact</a>
+
+        {/* Right: Contact & Location */}
+        <div className="w-full lg:w-1/3 flex flex-col lg:items-end text-left lg:text-right">
+          <div className="flex flex-col gap-6">
+            <h4 className="font-sans text-xs tracking-[0.4em] uppercase text-muse-ink mb-4">Connect</h4>
+            <a href="https://www.instagram.com/modernmusebeauty_yyc" target="_blank" rel="noreferrer" className="font-sans text-sm text-muse-muted hover:text-muse-ink transition-colors">Instagram</a>
+            <Link href="/contact" className="font-sans text-sm text-muse-muted hover:text-muse-ink transition-colors">Contact Us</Link>
+            <a href="https://modern-muse-beauty.square.site/" target="_blank" rel="noreferrer" className="font-sans text-sm text-muse-muted hover:text-muse-ink transition-colors">Book Online</a>
+          </div>
+          <div className="mt-12 flex flex-col gap-2">
+            <h4 className="font-sans text-xs tracking-[0.4em] uppercase text-muse-ink mb-4">Studio</h4>
+            <p className="font-sans text-sm text-muse-muted">909 5 Ave SW</p>
+            <p className="font-sans text-sm text-muse-muted">Calgary, AB T2P 3G5</p>
+          </div>
         </div>
-        <div>
-          <p>&copy; {new Date().getFullYear()} Modern Muse Beauty</p>
+
+      </div>
+
+      {/* Bottom Massive Typography */}
+      <div className="w-full text-center z-10 pt-16 border-t border-muse-line flex flex-col items-center">
+        <h2 className="font-serif text-[12vw] lg:text-[10vw] text-muse-ink/10 tracking-tighter leading-none mb-8 select-none">
+          Modern Muse
+        </h2>
+        <div className="w-full flex justify-between items-center text-[10px] font-sans tracking-[0.2em] uppercase text-muse-muted">
+          <span>&copy; {new Date().getFullYear()}</span>
+          <span>Calgary, Alberta</span>
         </div>
       </div>
+
     </footer>
   );
 }

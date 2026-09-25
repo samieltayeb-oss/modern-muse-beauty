@@ -35,7 +35,7 @@ export default function Navbar() {
         <div className="container mx-auto px-6 lg:px-24 flex justify-between items-center">
           
           {/* Logo */}
-          <Link href="/" className="relative h-8 md:h-10 w-48 md:w-56 z-50" onClick={() => setMenuOpen(false)}>
+          <Link href="/" className="relative h-12 md:h-16 w-56 md:w-72 z-50" onClick={() => setMenuOpen(false)}>
             <Image
               src="/images/logo.png"
               alt="Modern Muse Beauty"

@@ -32,7 +32,7 @@ export default function Spotlight() {
         <div className="w-full lg:w-1/2 h-screen relative p-6 lg:p-24" ref={imageRef}>
           <div className="relative w-full h-full overflow-hidden bg-muse-stone">
             <Image
-              src="/images/kobido_hands.jpg"
+              src="/images/spotlight_kobido.jpg"
               alt="Kobido Facial Detail"
               fill
               className="object-cover"
@@ -61,7 +61,7 @@ export default function Spotlight() {
               Step into a serene, architectural wellness studio designed to quiet the mind. Every detail, from the warm stone textures to the premium linens, is curated for deep restoration.
             </p>
             <div className="relative w-full aspect-[4/3] mt-8 overflow-hidden group">
-              <Image src="/images/studio_atmosphere.jpg" alt="Studio" fill className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-[0.16,1,0.3,1]" />
+              <Image src="/images/spotlight_studio.jpg" alt="Studio" fill className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-[0.16,1,0.3,1]" />
             </div>
           </div>
 

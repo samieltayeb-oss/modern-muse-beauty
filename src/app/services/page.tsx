@@ -69,7 +69,7 @@ export default function ServicesPage() {
         </h1>
         <div className="relative w-full aspect-[21/9] overflow-hidden fade-up bg-muse-stone">
           <Image 
-            src="/images/lymphatic_body.jpg"
+            src="/images/hero_services.jpg"
             alt="Services Hero"
             fill
             className="object-cover object-center"

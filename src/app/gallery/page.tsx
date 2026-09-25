@@ -37,7 +37,7 @@ export default function GalleryPage() {
         </h1>
         <div className="relative w-full aspect-[21/9] overflow-hidden fade-up bg-muse-stone">
           <Image 
-            src="/images/gallery_two.jpg"
+            src="/images/hero_gallery.jpg"
             alt="Gallery Hero"
             fill
             className="object-cover object-center"

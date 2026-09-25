@@ -1,103 +1,194 @@
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
-import Image from "next/image";
-import { notFound } from "next/navigation";
+"use client";
 
-// Reuse the exact data structure for static generation
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { useEffect } from "react";
+import gsap from "gsap";
+
 const allServices = [
   {
     title: "Kobido Japanese Facial Massage",
     duration: "55 mins",
     price: "CAD$130.00",
     slug: "kobido-japanese-facial",
-    desc: "The Kobido Japanese Facial Massage is a rejuvenating and deeply relaxing treatment that combines traditional techniques with precise, rhythmic movements to lift, tone, and revitalize the skin. Known as the “ancient way of beauty,” this massage stimulates circulation, boosts collagen production, and promotes lymphatic drainage, leaving the face glowing, sculpted, and refreshed. It’s a natural, non-invasive way to restore radiance and harmony to both skin and mind.",
-    image: "/images/kobido_hands.jpg"
+    desc: "A rejuvenating and deeply relaxing treatment that combines traditional techniques with precise, rhythmic movements to lift, tone, and revitalize the skin.",
+    image: "/images/kobido_hands.jpg",
+    benefits: [
+      "Naturally lifts and sculpts the jawline and cheekbones",
+      "Stimulates deep collagen and elastin production",
+      "Significantly reduces facial puffiness through lymphatic drainage",
+      "Releases deep tension held in the facial muscles and neck"
+    ],
+    gallery: [
+      "/images/kobido_hands.jpg",
+      "/images/detail_oils.jpg",
+      "/images/gallery_two.jpg",
+      "/images/detail_ambient.jpg"
+    ]
   },
   {
     title: "Full Body Lymphatic Drainage",
     duration: "1 hr",
     price: "CAD$150.00",
     slug: "full-body-lymphatic-drainage",
-    desc: "A full body lymphatic drainage massage is a gentle, rhythmic treatment designed to stimulate the lymphatic system, helping the body eliminate toxins and reduce fluid retention. Using light, sweeping motions, it promotes circulation, supports the immune system, and leaves you feeling lighter and deeply relaxed. This includes legs, arms, abdomen, decollete, face and neck.",
-    image: "/images/lymphatic_body.jpg"
+    desc: "A gentle, rhythmic treatment designed to stimulate the lymphatic system, helping the body eliminate toxins and reduce fluid retention.",
+    image: "/images/lymphatic_body.jpg",
+    benefits: [
+      "Accelerates the body's natural detoxification processes",
+      "Reduces bloating, water retention, and systemic inflammation",
+      "Boosts immune function and overall vitality",
+      "Promotes profound relaxation and nervous system regulation"
+    ],
+    gallery: [
+      "/images/lymphatic_body.jpg",
+      "/images/detail_ambient.jpg",
+      "/images/detail_oils.jpg",
+      "/images/hero_services.jpg"
+    ]
   },
   {
     title: "Glute Enhancement",
     duration: "1 hr 15 mins",
     price: "CAD$145.00",
     slug: "glute-enhancement",
-    desc: "The glute enhancement treatment is a non invasive procedure that helps lift, firm, and tone the buttocks. Using specialized techniques and equipment, it stimulates muscle activity and improves circulation, enhancing shape and contour for a more sculpted, lifted appearance.",
-    image: "/images/glute_enhancement.jpg"
+    desc: "A non-invasive procedure that helps lift, firm, and tone the buttocks using specialized techniques and equipment.",
+    image: "/images/glute_enhancement.jpg",
+    benefits: [
+      "Lifts and contours the gluteal muscles",
+      "Improves local blood circulation and tissue oxygenation",
+      "Firms and tightens the overlying skin",
+      "Provides a non-surgical approach to body sculpting"
+    ],
+    gallery: [
+      "/images/glute_enhancement.jpg",
+      "/images/detail_oils.jpg",
+      "/images/detail_ambient.jpg",
+      "/images/gallery_one.jpg"
+    ]
   },
   {
     title: "Cellulite Reduction Therapy",
     duration: "45 mins",
     price: "CAD$115.00",
     slug: "cellulite-reduction-therapy",
-    desc: "Cellulite reduction therapy on the back of the thighs targets uneven skin texture and dimpling by improving circulation and stimulating collagen production. This therapy helps smooth and firm the skin, reducing the appearance of cellulite for a more toned and refined look.",
-    image: "/images/cellulite_reduction.jpg"
+    desc: "Targets uneven skin texture and dimpling by improving circulation and stimulating collagen production.",
+    image: "/images/cellulite_reduction.jpg",
+    benefits: [
+      "Smooths skin texture and reduces the appearance of dimpling",
+      "Breaks down stubborn fascial adhesions",
+      "Increases localized circulation to support fat metabolism",
+      "Improves overall skin tone and elasticity"
+    ],
+    gallery: [
+      "/images/cellulite_reduction.jpg",
+      "/images/detail_ambient.jpg",
+      "/images/gallery_one.jpg",
+      "/images/detail_oils.jpg"
+    ]
   },
   {
     title: "Abdomen Drainage",
     duration: "40 mins",
     price: "CAD$105.00",
     slug: "abdomen-drainage",
-    desc: "Abdomen Lymphatic Drainage is a gentle, targeted massage technique focused exclusively on the abdominal area. Its purpose is to stimulte the lymphatic system, helping reduce bloating, ease digestive discomfort and support the bodys natural detoxification process.",
-    image: "/images/abdomen_drainage.jpg"
+    desc: "A gentle, targeted massage technique focused exclusively on the abdominal area to reduce bloating and support detox.",
+    image: "/images/abdomen_drainage.jpg",
+    benefits: [
+      "Relieves abdominal bloating and gas",
+      "Stimulates digestive organ function and motility",
+      "Releases deep tension held in the diaphragm and gut",
+      "Supports liver and localized lymphatic detoxification"
+    ],
+    gallery: [
+      "/images/abdomen_drainage.jpg",
+      "/images/detail_oils.jpg",
+      "/images/detail_ambient.jpg",
+      "/images/gallery_two.jpg"
+    ]
   }
 ];
 
-export async function generateStaticParams() {
-  return allServices.map((svc) => ({
-    slug: svc.slug,
-  }));
-}
-
-export default function ServiceDetail({ params }: { params: { slug: string } }) {
+export default function ServiceSlugPage({ params }: { params: { slug: string } }) {
   const service = allServices.find(s => s.slug === params.slug);
+
+  useEffect(() => {
+    gsap.fromTo(".fade-up", 
+      { opacity: 0, y: 30 }, 
+      { opacity: 1, y: 0, duration: 1.2, stagger: 0.15, ease: "power3.out" }
+    );
+  }, [params.slug]);
 
   if (!service) {
     notFound();
   }
 
   return (
-    <main className="relative min-h-screen selection:bg-muse-nude selection:text-muse-ink">
+    <main className="relative min-h-screen bg-muse-ivory text-muse-ink">
       <Navbar />
-      
-      <section className="w-full pt-32 pb-24 md:pt-48 md:pb-32 px-6 md:px-12 flex flex-col md:flex-row gap-12 lg:gap-24 container mx-auto">
-        <div className="w-full md:w-1/2 relative aspect-[3/4]">
-          <Image 
-            src={service.image}
-            alt={service.title}
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+
+      <section className="container mx-auto px-6 lg:px-24 pt-48 pb-16">
+        <Link href="/services" className="font-sans text-xs tracking-[0.2em] uppercase text-muse-muted hover:text-muse-ink transition-colors pb-2 border-b border-transparent hover:border-muse-ink fade-up inline-block mb-12">
+          &larr; Back to Offerings
+        </Link>
         
-        <div className="w-full md:w-1/2 flex flex-col justify-center">
-          <h3 className="font-sans text-xs tracking-widest uppercase text-muse-accent mb-6">Signature Treatment</h3>
-          <h1 className="font-serif text-5xl md:text-7xl mb-12 leading-tight">
-            {service.title}
-          </h1>
-          
-          <div className="flex gap-8 font-sans text-sm tracking-widest uppercase text-muse-ink mb-12 py-6 border-y border-muse-stone/30">
-            <span>{service.duration}</span>
-            <span>{service.price}</span>
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 fade-up">
+          <div className="w-full lg:w-1/2">
+            <h1 className="font-serif text-5xl md:text-7xl tracking-tight leading-tight mb-8">{service.title}</h1>
+            <h3 className="font-sans text-xs tracking-[0.4em] uppercase text-muse-muted mb-12">
+              {service.duration} &mdash; {service.price}
+            </h3>
+            <p className="font-sans text-base leading-[2.2] text-muse-ink/80 mb-12">
+              {service.desc}
+            </p>
+            
+            <h4 className="font-sans text-xs tracking-[0.3em] uppercase text-muse-ink mb-6">Key Benefits</h4>
+            <ul className="space-y-4 mb-16">
+              {service.benefits.map((benefit, i) => (
+                <li key={i} className="font-sans text-sm text-muse-muted leading-relaxed flex gap-4">
+                  <span className="text-muse-ink/30">&mdash;</span> {benefit}
+                </li>
+              ))}
+            </ul>
+
+            <a 
+              href="https://modern-muse-beauty.square.site/" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="inline-block border border-muse-ink px-12 py-5 font-sans text-xs tracking-[0.3em] uppercase hover:bg-muse-ink hover:text-muse-ivory transition-colors duration-500"
+            >
+              Book Treatment
+            </a>
           </div>
 
-          <p className="font-sans text-lg leading-relaxed text-muse-muted mb-12 max-w-lg">
-            {service.desc}
-          </p>
+          <div className="w-full lg:w-1/2 aspect-[3/4] relative bg-muse-stone overflow-hidden">
+            <Image
+              src={service.image}
+              alt={service.title}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+      </section>
 
-          <a 
-            href="https://modern-muse-beauty.square.site/" 
-            target="_blank" 
-            rel="noreferrer"
-            className="self-start pb-2 border-b border-muse-ink font-sans text-xs tracking-widest uppercase hover:text-muse-accent hover:border-muse-accent transition-colors"
-          >
-            Book this treatment
-          </a>
+      {/* Detail Gallery Section */}
+      <section className="container mx-auto px-6 lg:px-24 py-16 md:py-32">
+        <h3 className="font-sans text-xs tracking-[0.4em] uppercase text-muse-muted mb-16 text-center fade-up">Treatment Details</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {service.gallery.map((imgSrc, idx) => (
+            <div key={idx} className="relative aspect-[4/3] w-full bg-muse-stone overflow-hidden fade-up">
+              <Image 
+                src={imgSrc} 
+                alt={`${service.title} detail ${idx + 1}`} 
+                fill 
+                className="object-cover" 
+              />
+            </div>
+          ))}
         </div>
       </section>
 
