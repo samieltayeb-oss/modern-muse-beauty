@@ -108,6 +108,46 @@ const allServices = [
       "/images/detail_ambient.jpg",
       "/images/gallery_two.jpg"
     ]
+  },
+  {
+    title: "Add on wood therapy",
+    duration: "20 mins",
+    price: "CAD$25.00",
+    slug: "add-on-wood-therapy",
+    desc: "Perfect to add on to your Glute enhancement treatment. This treatment uses specially crafted wooden tools to help target cellulite and stimulate blood flow at the back of the legs.",
+    image: "/images/ig_aesthetic_2.jpg",
+    benefits: [
+      "Targets stubborn cellulite",
+      "Stimulates intense localized blood flow",
+      "Breaks down fascial restrictions",
+      "Perfect complement to glute enhancement"
+    ],
+    gallery: [
+      "/images/ig_aesthetic_2.jpg",
+      "/images/ig_aesthetic_4.jpg",
+      "/images/cellulite_reduction.jpg",
+      "/images/detail_oils.jpg"
+    ]
+  },
+  {
+    title: "Add on mask",
+    duration: "10 mins",
+    price: "CAD$15.00",
+    slug: "add-on-mask",
+    desc: "The Hydro Jelly Mask add on is the perfect finishing touch to a Kobido Japanese facial massage. Rich in hydrating and soothing ingredients, this mask deeply nourishes the skin.",
+    image: "/images/spotlight_kobido.jpg",
+    benefits: [
+      "Deeply hydrates and soothes the skin",
+      "Locks in serums and active ingredients",
+      "Reduces redness and inflammation",
+      "Provides a cooling, sensory finish to your facial"
+    ],
+    gallery: [
+      "/images/spotlight_kobido.jpg",
+      "/images/detail_ambient.jpg",
+      "/images/kobido_hands.jpg",
+      "/images/ig_aesthetic_5.jpg"
+    ]
   }
 ];
 

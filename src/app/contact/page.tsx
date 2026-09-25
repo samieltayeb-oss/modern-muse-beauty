@@ -40,9 +40,19 @@ export default function ContactPage() {
           <h2 className="font-serif text-4xl md:text-5xl mb-12 tracking-tight">Visit the studio</h2>
           <div className="font-sans text-sm text-muse-muted leading-[2.5] space-y-12 max-w-sm">
             <div>
-              <h4 className="text-xs tracking-[0.4em] uppercase text-muse-ink mb-4">Location</h4>
+              <h4 className="text-xs tracking-[0.4em] uppercase text-muse-ink mb-4">Location & Contact</h4>
               <p>909 5 Ave SW</p>
-              <p>Calgary, AB T2P 3G5</p>
+              <p>Calgary, Alberta T2P 3G5</p>
+              <p className="mt-4"><a href="tel:4035611337" className="hover:text-muse-ink transition-colors">(403) 561-1337</a></p>
+            </div>
+            <div>
+              <h4 className="text-xs tracking-[0.4em] uppercase text-muse-ink mb-4">Hours</h4>
+              <p className="grid grid-cols-2 gap-4">
+                <span>Monday - Thursday</span> <span>Closed</span>
+                <span>Friday</span> <span>10:00 a.m. - 6:00 p.m.</span>
+                <span>Saturday</span> <span>10:00 a.m. - 6:00 p.m.</span>
+                <span>Sunday</span> <span>Closed</span>
+              </p>
             </div>
             <div>
               <h4 className="text-xs tracking-[0.4em] uppercase text-muse-ink mb-4">Social</h4>

@@ -57,7 +57,8 @@ export default function Footer() {
           <div className="mt-12 flex flex-col gap-2">
             <h4 className="font-sans text-xs tracking-[0.4em] uppercase text-muse-ink mb-4">Studio</h4>
             <p className="font-sans text-sm text-muse-muted">909 5 Ave SW</p>
-            <p className="font-sans text-sm text-muse-muted">Calgary, AB T2P 3G5</p>
+            <p className="font-sans text-sm text-muse-muted">Calgary, Alberta T2P 3G5</p>
+            <p className="font-sans text-sm text-muse-muted mt-2"><a href="tel:4035611337" className="hover:text-muse-ink transition-colors">(403) 561-1337</a></p>
           </div>
         </div>
 
