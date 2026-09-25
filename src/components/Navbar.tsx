@@ -40,13 +40,13 @@ export default function Navbar() {
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           <button 
             onClick={() => setMenuOpen(!menuOpen)}
-            className="flex items-center gap-2 text-sm font-sans tracking-widest uppercase hover:text-muse-accent transition-colors z-50"
+            className="flex items-center gap-2 text-sm font-sans tracking-widest uppercase hover:text-muse-accent transition-colors z-50 mix-blend-difference text-white"
           >
             {menuOpen ? <X size={20} strokeWidth={1} /> : <Menu size={20} strokeWidth={1} />}
             <span className="hidden md:block">{menuOpen ? "Close" : "Menu"}</span>
           </button>
           
-          <Link href="/" className="relative h-12 w-48 md:w-64 z-50" onClick={() => setMenuOpen(false)}>
+          <Link href="/" className="relative h-12 w-48 md:w-64 z-50 mix-blend-difference" onClick={() => setMenuOpen(false)}>
             <Image
               src="/images/logo.png"
               alt="Modern Muse Beauty"
@@ -56,9 +56,9 @@ export default function Navbar() {
             />
           </Link>
 
-          <a href="https://modern-muse-beauty.square.site/" target="_blank" rel="noreferrer" className="text-sm font-sans tracking-widest uppercase relative group z-50">
+          <a href="https://modern-muse-beauty.square.site/" target="_blank" rel="noreferrer" className="text-sm font-sans tracking-widest uppercase relative group z-50 mix-blend-difference text-white">
             Book
-            <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-muse-ink origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
+            <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-white origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
           </a>
         </div>
       </motion.header>
@@ -83,7 +83,7 @@ export default function Navbar() {
                   <Link 
                     href={link.path}
                     onClick={() => setMenuOpen(false)}
-                    className="font-serif text-4xl md:text-6xl hover:text-muse-accent transition-colors hover:italic"
+                    className="font-serif text-4xl md:text-6xl text-muse-ink hover:text-muse-accent transition-colors hover:italic"
                   >
                     {link.name}
                   </Link>

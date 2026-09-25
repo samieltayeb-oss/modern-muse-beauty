@@ -1,31 +1,19 @@
-from PIL import Image
+from PIL import Image, ImageOps
 
-def make_transparent(input_path, output_path):
-    # Open image and convert to grayscale
+def make_white_transparent(input_path, output_path):
     img = Image.open(input_path).convert("L")
     
-    # The image is black text on white background.
-    # We want white (255) to be transparent (alpha=0),
-    # and black (0) to be opaque (alpha=255).
-    # Alpha = 255 - grayscale
-    
-    # Create an image with the --muse-ink color: #0F0F0F (15, 15, 15)
-    ink_color = (15, 15, 15)
-    
-    # Create an RGBA image filled with the ink color
-    new_img = Image.new("RGBA", img.size, ink_color + (255,))
+    # Create an image filled with pure white
+    white_color = (255, 255, 255)
+    new_img = Image.new("RGBA", img.size, white_color + (255,))
     
     # Invert the grayscale image to use as the alpha mask
     # where white is 0, black is 255
-    from PIL import ImageOps
     alpha_mask = ImageOps.invert(img)
     
-    # Apply the alpha mask
     new_img.putalpha(alpha_mask)
-    
-    # Save the result
     new_img.save(output_path, "PNG")
-    print(f"Saved premium transparent logo to {output_path}")
+    print("Saved white transparent logo")
 
 if __name__ == "__main__":
-    make_transparent("public/images/logo.png", "public/images/logo.png")
+    make_white_transparent("public/images/logo.png", "public/images/logo.png")
