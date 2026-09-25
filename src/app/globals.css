@@ -1,36 +1,35 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-muse-ink: #000000;
+  --color-muse-ivory: #ffffff;
+  --color-muse-stone: #e6e6e6;
+  --color-muse-nude: #f5f5f5;
+  --color-muse-accent: #505050;
+  --color-muse-muted: #6e6e6e;
+  --color-muse-line: rgba(0, 0, 0, 0.1);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+}
 
 @layer base {
-  :root {
-    color-scheme: light;
-    --muse-ink: 0 0 0;
-    --muse-ivory: 255 255 255;
-    --muse-stone: 230 230 230;
-    --muse-nude: 245 245 245;
-    --muse-accent: 80 80 80;
-    --muse-muted: 110 110 110;
-    --muse-line: rgba(0, 0, 0, 0.1);
-  }
-
-  /* Force light theme to block extensions like Dark Reader from breaking the design */
+  /* Prevent dark mode extensions from breaking the design */
   html, body {
-    background-color: #FFFFFF !important;
+    background-color: #ffffff !important;
     color: #000000 !important;
     color-scheme: light !important;
   }
 
   body {
-    @apply antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@utility text-balance {
+  text-wrap: balance;
 }
 
 /* Custom Scrollbar */
@@ -38,31 +37,28 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FFFFFF;
+  background: #ffffff;
 }
 ::-webkit-scrollbar-thumb {
-  background: #E0E0E0;
+  background: #e0e0e0;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #A0A0A0;
+  background: #a0a0a0;
 }
 
+/* Lenis */
 html.lenis {
   height: auto;
 }
-
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
-
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
 }
-
 .lenis.lenis-stopped {
   overflow: hidden;
 }
-
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
