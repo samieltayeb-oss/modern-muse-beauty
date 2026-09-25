@@ -13,119 +13,116 @@ const services = [
     duration: "55 MINS",
     price: "$130",
     image: "/images/kobido_hands.jpg",
+    desc: "A rejuvenating and deeply relaxing treatment combining traditional techniques with precise, rhythmic movements.",
   },
   {
     title: "Lymphatic Drainage",
     duration: "60 MINS",
     price: "$150",
     image: "/images/lymphatic_body.jpg",
+    desc: "A gentle, rhythmic treatment designed to stimulate the lymphatic system, helping the body eliminate toxins.",
   },
   {
     title: "Glute Enhancement",
     duration: "75 MINS",
     price: "$145",
     image: "/images/glute_enhancement.jpg",
+    desc: "A non-invasive procedure that helps lift, firm, and tone the buttocks using specialized techniques.",
   },
   {
     title: "Cellulite Reduction",
     duration: "45 MINS",
     price: "$115",
     image: "/images/cellulite_reduction.jpg",
+    desc: "Targets uneven skin texture and dimpling by improving circulation and stimulating collagen production.",
   },
 ];
 
 export default function Services() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const imageRevealRef = useRef<HTMLDivElement>(null);
-  const [activeImage, setActiveImage] = useState(services[0].image);
+  const leftColRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Staggered list reveal
-      gsap.fromTo(
-        ".service-item",
-        { opacity: 0, y: 100 },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.1,
-          duration: 1.5,
-          ease: "power4.out",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 70%",
-          },
-        }
-      );
+      
+      // Pin the left column while scrolling through the right list
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top top",
+        end: "bottom bottom",
+        pin: leftColRef.current,
+      });
 
-      // Follow cursor logic
-      const reveal = imageRevealRef.current;
-      if (reveal) {
-        const xTo = gsap.quickTo(reveal, "left", { duration: 0.6, ease: "power3" });
-        const yTo = gsap.quickTo(reveal, "top", { duration: 0.6, ease: "power3" });
+      // Update active image based on scroll position of list items
+      const items = gsap.utils.toArray<HTMLElement>(".service-item");
+      items.forEach((item, i) => {
+        ScrollTrigger.create({
+          trigger: item,
+          start: "top center",
+          end: "bottom center",
+          onToggle: (self) => {
+            if (self.isActive) setActiveIndex(i);
+          }
+        });
+      });
 
-        const move = (e: MouseEvent) => {
-          xTo(e.clientX);
-          yTo(e.clientY);
-        };
-        window.addEventListener("mousemove", move);
-        return () => window.removeEventListener("mousemove", move);
-      }
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={containerRef} className="w-full py-40 md:py-64 px-6 md:px-24 bg-white text-black relative min-h-screen">
-      
-      {/* Floating Image Reveal (Desktop Only) */}
-      <div 
-        ref={imageRevealRef}
-        className="fixed w-[25vw] aspect-[3/4] pointer-events-none z-50 hidden lg:block overflow-hidden rounded-sm opacity-0 scale-50 transition-all duration-500 ease-out"
-        style={{ transform: "translate(-50%, -50%)" }}
-      >
-        <Image
-          src={activeImage}
-          alt="Service"
-          fill
-          className="object-cover"
-        />
-      </div>
+    <section ref={containerRef} className="w-full bg-muse-ivory text-muse-ink relative">
+      <div className="flex flex-col lg:flex-row w-full min-h-[200vh]">
+        
+        {/* Left Side: Pinned Image Area */}
+        <div className="w-full lg:w-1/2 h-screen p-6 lg:p-24 hidden lg:block" ref={leftColRef}>
+          <div className="w-full h-full relative overflow-hidden bg-muse-stone">
+            {services.map((service, i) => (
+              <Image
+                key={i}
+                src={service.image}
+                alt={service.title}
+                fill
+                className={`object-cover transition-opacity duration-1000 ease-in-out ${
+                  i === activeIndex ? "opacity-100" : "opacity-0"
+                }`}
+                priority={i === 0}
+              />
+            ))}
+          </div>
+        </div>
 
-      <div className="container mx-auto max-w-6xl">
-        <h3 className="font-sans text-xs tracking-[0.3em] uppercase mb-24 text-black/40">The Offerings</h3>
-        <ul className="space-y-0 w-full">
-          {services.map((service, i) => (
-            <li 
-              key={i} 
-              className="service-item group cursor-pointer border-t border-black/10 py-12 lg:py-16 first:border-t-0"
-              onMouseEnter={() => {
-                setActiveImage(service.image);
-                if (imageRevealRef.current) {
-                  imageRevealRef.current.style.opacity = "1";
-                  imageRevealRef.current.style.transform = "translate(-50%, -50%) scale(1)";
-                }
-              }}
-              onMouseLeave={() => {
-                if (imageRevealRef.current) {
-                  imageRevealRef.current.style.opacity = "0";
-                  imageRevealRef.current.style.transform = "translate(-50%, -50%) scale(0.5)";
-                }
-              }}
-            >
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                <h4 className="font-serif text-5xl md:text-7xl lg:text-8xl transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:translate-x-12 group-hover:italic group-hover:opacity-40">
+        {/* Right Side: Scrolling List */}
+        <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 lg:px-24 py-32 lg:py-[50vh]">
+          <h3 className="font-sans text-xs tracking-[0.4em] uppercase mb-16 text-muse-muted">The Offerings</h3>
+          <ul className="space-y-32">
+            {services.map((service, i) => (
+              <li 
+                key={i} 
+                className={`service-item group flex flex-col gap-6 transition-opacity duration-500 ${i === activeIndex ? 'opacity-100' : 'opacity-30 lg:opacity-100'}`}
+              >
+                {/* Mobile Image (Hidden on Desktop) */}
+                <div className="w-full aspect-[4/3] relative overflow-hidden lg:hidden mb-4">
+                  <Image src={service.image} alt={service.title} fill className="object-cover" />
+                </div>
+                
+                <h4 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-tight text-muse-ink">
                   {service.title}
                 </h4>
-                <div className="text-left md:text-right font-sans text-xs tracking-[0.2em] opacity-40 group-hover:opacity-100 transition-opacity duration-500 uppercase">
-                  <p className="mb-2">{service.duration}</p>
-                  <p>{service.price}</p>
+                <p className="font-sans text-sm leading-loose text-muse-muted max-w-sm">
+                  {service.desc}
+                </p>
+                <div className="font-sans text-xs tracking-[0.2em] text-muse-ink uppercase border-t border-muse-line pt-6 mt-4 flex gap-8">
+                  <span>{service.duration}</span>
+                  <span>{service.price}</span>
                 </div>
-              </div>
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+        </div>
+
       </div>
     </section>
   );

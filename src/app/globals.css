@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-muse-ink: #000000;
-  --color-muse-ivory: #ffffff;
-  --color-muse-stone: #e6e6e6;
-  --color-muse-nude: #f5f5f5;
-  --color-muse-accent: #505050;
-  --color-muse-muted: #6e6e6e;
-  --color-muse-line: rgba(0, 0, 0, 0.1);
+  --color-muse-ink: #1A1A1A;
+  --color-muse-ivory: #FDFBF7;
+  --color-muse-stone: #EFECE6;
+  --color-muse-nude: #E6DFD3;
+  --color-muse-accent: #8C8273;
+  --color-muse-muted: #A39E93;
+  --color-muse-line: rgba(26, 26, 26, 0.1);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
@@ -16,15 +16,14 @@
 @layer base {
   /* Prevent dark mode extensions from breaking the design */
   html, body {
-    background-color: #ffffff !important;
-    color: #000000 !important;
+    background-color: #FDFBF7 !important;
+    color: #1A1A1A !important;
     color-scheme: light !important;
   }
 
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }
 
@@ -37,13 +36,13 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: #FDFBF7;
 }
 ::-webkit-scrollbar-thumb {
-  background: #e0e0e0;
+  background: #EFECE6;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #a0a0a0;
+  background: #D3CDC1;
 }
 
 /* Lenis */

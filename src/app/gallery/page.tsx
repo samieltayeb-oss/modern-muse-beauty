@@ -27,30 +27,29 @@ export default function GalleryPage() {
   }, []);
 
   return (
-    <main className="relative min-h-screen bg-white">
+    <main className="relative min-h-screen bg-muse-ivory text-muse-ink">
       <Navbar />
 
-      {/* Massive Hero Section */}
-      <section className="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0 scale-105 fade-up">
+      {/* Elegant Hero Section */}
+      <section className="relative w-full pt-40 md:pt-48 pb-16 px-6 lg:px-24">
+        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight leading-none fade-up text-center mb-16">
+          Archive.
+        </h1>
+        <div className="relative w-full aspect-[21/9] overflow-hidden fade-up bg-muse-stone">
           <Image 
             src="/images/gallery_two.jpg"
             alt="Gallery Hero"
             fill
-            className="object-cover object-top"
+            className="object-cover object-center"
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-black/20 z-10"></div>
-        <h1 className="relative z-20 font-serif text-[12vw] text-white tracking-tighter leading-none fade-up text-center mix-blend-overlay">
-          Archive.
-        </h1>
       </section>
 
-      <section className="container mx-auto px-6 md:px-12 py-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
+      <section className="container mx-auto px-6 lg:px-24 py-16 md:py-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {images.map((src, i) => (
-            <div key={i} className="relative aspect-[3/4] w-full group overflow-hidden fade-up">
+            <div key={i} className="relative aspect-[3/4] w-full group overflow-hidden fade-up bg-muse-stone">
               <Image 
                 src={src} 
                 alt={`Gallery image ${i + 1}`} 

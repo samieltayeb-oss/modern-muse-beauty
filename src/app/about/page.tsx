@@ -15,30 +15,29 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <main className="relative min-h-screen bg-white">
+    <main className="relative min-h-screen bg-muse-ivory text-muse-ink">
       <Navbar />
       
-      {/* Massive Hero Section */}
-      <section className="relative w-full h-[80vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0 scale-105 fade-up">
+      {/* Elegant Hero Section */}
+      <section className="relative w-full pt-40 md:pt-48 pb-16 px-6 lg:px-24">
+        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight leading-none fade-up text-center mb-16">
+          The <span className="italic font-light">Muse</span>.
+        </h1>
+        <div className="relative w-full aspect-[21/9] overflow-hidden fade-up bg-muse-stone">
           <Image 
             src="/images/hero_about.jpg"
             alt="The Muse"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-black/20 z-10"></div>
-        <h1 className="relative z-20 font-serif text-[15vw] text-white tracking-tighter leading-none fade-up text-center">
-          The <span className="italic font-light">Muse</span>.
-        </h1>
       </section>
 
       {/* Extensive Copy Section */}
-      <section className="container mx-auto px-6 md:px-12 py-32 md:py-48 flex flex-col items-center">
-        <div className="max-w-4xl text-center space-y-12 font-sans text-lg md:text-2xl text-black/70 leading-loose fade-up">
-          <h3 className="text-xs tracking-[0.4em] uppercase text-black/40 mb-12">Our Philosophy</h3>
+      <section className="container mx-auto px-6 md:px-12 pb-32 flex flex-col items-center">
+        <div className="max-w-3xl text-center space-y-12 font-sans text-lg md:text-xl text-muse-ink/80 leading-[2.2] fade-up">
+          <h3 className="text-xs tracking-[0.4em] uppercase text-muse-muted mb-12">Our Philosophy</h3>
           <p>
             Modern Muse Beauty is a sanctuary devoted to the art of transformation. We believe that true beauty is not merely aesthetic—it is a physiological response to deep, intentional care.
           </p>

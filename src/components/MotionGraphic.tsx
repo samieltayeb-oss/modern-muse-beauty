@@ -37,14 +37,14 @@ export default function MotionGraphic() {
   }, []);
 
   return (
-    <div className="w-full h-full flex items-center justify-center opacity-20 pointer-events-none">
+    <div className="w-full h-full flex items-center justify-center pointer-events-none">
       <svg 
         ref={svgRef}
         viewBox="0 0 800 800" 
         className="w-full h-full max-w-3xl"
         fill="none" 
-        stroke="black" 
-        strokeWidth="1"
+        stroke="var(--color-muse-accent)" 
+        strokeWidth="0.5"
       >
         <path d="M 100 400 C 200 100, 600 100, 700 400 C 800 700, 400 800, 100 400 Z" />
         <path d="M 150 400 C 250 200, 550 200, 650 400 C 750 600, 350 700, 150 400 Z" />

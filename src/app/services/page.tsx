@@ -59,31 +59,30 @@ export default function ServicesPage() {
   }, []);
 
   return (
-    <main className="relative min-h-screen bg-white">
+    <main className="relative min-h-screen bg-muse-ivory text-muse-ink">
       <Navbar />
 
-      {/* Massive Hero Section */}
-      <section className="relative w-full h-[70vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0 scale-105 fade-up">
+      {/* Elegant Hero Section */}
+      <section className="relative w-full pt-40 md:pt-48 pb-16 px-6 lg:px-24">
+        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight leading-none fade-up text-center mb-16">
+          Offerings.
+        </h1>
+        <div className="relative w-full aspect-[21/9] overflow-hidden fade-up bg-muse-stone">
           <Image 
             src="/images/lymphatic_body.jpg"
             alt="Services Hero"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-black/30 z-10"></div>
-        <h1 className="relative z-20 font-serif text-[12vw] text-white tracking-tighter leading-none fade-up text-center">
-          Offerings.
-        </h1>
       </section>
 
-      <section className="container mx-auto px-6 md:px-12 py-32">
+      <section className="container mx-auto px-6 lg:px-24 py-16 md:py-32">
         <div className="flex flex-col gap-32">
           {allServices.map((service, i) => (
-            <div key={i} className="flex flex-col md:flex-row gap-12 items-center fade-up">
-              <div className="w-full md:w-1/2 aspect-[4/3] relative overflow-hidden group">
+            <div key={i} className="flex flex-col lg:flex-row gap-16 items-center fade-up">
+              <div className="w-full lg:w-1/2 aspect-[4/3] relative overflow-hidden group bg-muse-stone">
                 <Link href={`/services/${service.slug}`}>
                   <Image 
                     src={service.image} 
@@ -93,19 +92,19 @@ export default function ServicesPage() {
                   />
                 </Link>
               </div>
-              <div className="w-full md:w-1/2 flex flex-col justify-center px-0 md:px-12">
-                <h3 className="font-sans text-xs tracking-[0.3em] text-black/40 mb-6 uppercase">
+              <div className="w-full lg:w-1/2 flex flex-col justify-center px-0 lg:px-12">
+                <h3 className="font-sans text-xs tracking-[0.4em] text-muse-muted mb-8 uppercase">
                   {service.duration} &mdash; {service.price}
                 </h3>
-                <h2 className="font-serif text-4xl md:text-6xl mb-8 leading-tight hover:italic transition-all duration-500">
+                <h2 className="font-serif text-4xl md:text-5xl mb-8 leading-tight">
                   <Link href={`/services/${service.slug}`}>{service.title}</Link>
                 </h2>
-                <p className="font-sans text-sm md:text-base leading-loose text-black/70 mb-12 max-w-lg">
+                <p className="font-sans text-sm leading-loose text-muse-muted mb-12 max-w-md">
                   {service.desc}
                 </p>
                 <Link 
                   href={`/services/${service.slug}`}
-                  className="self-start text-xs font-sans tracking-[0.2em] uppercase border-b border-black pb-2 hover:opacity-50 transition-opacity"
+                  className="self-start text-xs font-sans tracking-[0.3em] uppercase border-b border-muse-line hover:border-muse-ink pb-2 transition-colors"
                 >
                   Discover Treatment
                 </Link>

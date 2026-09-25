@@ -38,32 +38,31 @@ export default function FAQPage() {
   ];
 
   return (
-    <main className="relative min-h-screen bg-white">
+    <main className="relative min-h-screen bg-muse-ivory text-muse-ink">
       <Navbar />
       
-      {/* Massive Hero Section */}
-      <section className="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0 scale-105 fade-up">
+      {/* Elegant Hero Section */}
+      <section className="relative w-full pt-40 md:pt-48 pb-16 px-6 lg:px-24">
+        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight leading-none fade-up text-center mb-16">
+          Inquiries.
+        </h1>
+        <div className="relative w-full aspect-[21/9] overflow-hidden fade-up bg-muse-stone">
           <Image 
             src="/images/hero_faq.jpg"
             alt="FAQ Hero"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-black/10 z-10"></div>
-        <h1 className="relative z-20 font-serif text-[12vw] text-white tracking-tighter leading-none fade-up text-center">
-          Inquiries.
-        </h1>
       </section>
       
-      <section className="container mx-auto px-6 md:px-12 py-32 md:py-48 max-w-5xl">
+      <section className="container mx-auto px-6 md:px-12 py-16 md:py-32 max-w-4xl">
         <div className="flex flex-col gap-16">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="border-b border-black/10 pb-16 fade-up">
-              <h3 className="font-serif text-3xl md:text-5xl mb-8 leading-tight">{faq.q}</h3>
-              <p className="font-sans text-lg md:text-xl text-black/60 leading-relaxed max-w-3xl">
+            <div key={idx} className="border-b border-muse-line pb-16 fade-up">
+              <h3 className="font-serif text-3xl md:text-4xl mb-8 leading-snug">{faq.q}</h3>
+              <p className="font-sans text-sm md:text-base text-muse-muted leading-loose max-w-2xl">
                 {faq.a}
               </p>
             </div>
