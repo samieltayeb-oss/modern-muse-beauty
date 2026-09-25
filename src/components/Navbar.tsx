@@ -51,7 +51,7 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-6 lg:px-24 flex justify-between items-center">
           
-          <Link href="/" className="relative h-16 md:h-20 w-64 md:w-80 z-50 transition-transform duration-500 hover:scale-[1.02]" onClick={() => setMenuOpen(false)}>
+          <Link href="/" className="relative h-12 md:h-20 w-40 sm:w-56 md:w-80 z-50 transition-transform duration-500 hover:scale-[1.02]" onClick={() => setMenuOpen(false)}>
             <Image
               src="/images/logo.png"
               alt="Modern Muse Beauty"
@@ -61,7 +61,7 @@ export default function Navbar() {
             />
           </Link>
 
-          <div className="flex items-center gap-8 z-50">
+          <div className="flex items-center gap-4 md:gap-8 z-50">
             <a 
               href="https://modern-muse-beauty.square.site/" 
               target="_blank" 
@@ -109,7 +109,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 onMouseEnter={() => setHoveredImg(link.name)}
                 onMouseLeave={() => setHoveredImg(null)}
-                className="font-serif text-5xl md:text-7xl lg:text-8xl text-muse-ink hover:italic transition-all duration-500 block text-center"
+                className="font-serif text-4xl md:text-7xl lg:text-8xl text-muse-ink hover:italic transition-all duration-500 block text-center"
               >
                 {link.name}
               </Link>
