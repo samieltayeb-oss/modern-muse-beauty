@@ -1,7 +1,11 @@
-import Footer from "@/components/Footer";
+"use client";
+
 import Navbar from "@/components/Navbar";
-import Image from "next/image";
+import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
+import { useEffect } from "react";
+import gsap from "gsap";
 
 const allServices = [
   {
@@ -47,44 +51,66 @@ const allServices = [
 ];
 
 export default function ServicesPage() {
-  return (
-    <main className="relative min-h-screen selection:bg-muse-nude selection:text-muse-ink pt-32">
-      <Navbar />
-      
-      <section className="container mx-auto px-6 md:px-12 py-24">
-        <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl tracking-tight mb-8">
-          The Menu.
-        </h1>
-        <p className="font-sans text-lg text-muse-muted max-w-xl mb-24 leading-relaxed">
-          Our treatments blend traditional techniques with modern body sculpting methods to enhance circulation, promote natural healing, and reveal a more sculpted, radiant you.
-        </p>
+  useEffect(() => {
+    gsap.fromTo(".fade-up", 
+      { opacity: 0, y: 50 }, 
+      { opacity: 1, y: 0, duration: 1.5, stagger: 0.1, ease: "power4.out" }
+    );
+  }, []);
 
-        <div className="flex flex-col gap-24">
-          {allServices.map((svc, idx) => (
-            <Link href={`/services/${svc.slug}`} key={idx} className="group block">
-              <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center">
-                <div className="w-full md:w-5/12 aspect-[4/5] relative overflow-hidden">
+  return (
+    <main className="relative min-h-screen bg-white">
+      <Navbar />
+
+      {/* Massive Hero Section */}
+      <section className="relative w-full h-[70vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0 scale-105 fade-up">
+          <Image 
+            src="/images/lymphatic_body.jpg"
+            alt="Services Hero"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-black/30 z-10"></div>
+        <h1 className="relative z-20 font-serif text-[12vw] text-white tracking-tighter leading-none fade-up text-center">
+          Offerings.
+        </h1>
+      </section>
+
+      <section className="container mx-auto px-6 md:px-12 py-32">
+        <div className="flex flex-col gap-32">
+          {allServices.map((service, i) => (
+            <div key={i} className="flex flex-col md:flex-row gap-12 items-center fade-up">
+              <div className="w-full md:w-1/2 aspect-[4/3] relative overflow-hidden group">
+                <Link href={`/services/${service.slug}`}>
                   <Image 
-                    src={svc.image} 
-                    alt={svc.title} 
+                    src={service.image} 
+                    alt={service.title} 
                     fill 
-                    className="object-cover transition-transform duration-1000 group-hover:scale-105" 
+                    className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-[0.16,1,0.3,1]" 
                   />
-                </div>
-                <div className="w-full md:w-7/12 flex flex-col justify-center">
-                  <h2 className="font-serif text-4xl md:text-6xl mb-6 group-hover:text-muse-accent transition-colors">
-                    {svc.title}
-                  </h2>
-                  <p className="font-sans text-base text-muse-muted max-w-md mb-8 leading-relaxed">
-                    {svc.desc}
-                  </p>
-                  <div className="flex gap-8 font-sans text-sm tracking-widest uppercase text-muse-ink">
-                    <span>{svc.duration}</span>
-                    <span>{svc.price}</span>
-                  </div>
-                </div>
+                </Link>
               </div>
-            </Link>
+              <div className="w-full md:w-1/2 flex flex-col justify-center px-0 md:px-12">
+                <h3 className="font-sans text-xs tracking-[0.3em] text-black/40 mb-6 uppercase">
+                  {service.duration} &mdash; {service.price}
+                </h3>
+                <h2 className="font-serif text-4xl md:text-6xl mb-8 leading-tight hover:italic transition-all duration-500">
+                  <Link href={`/services/${service.slug}`}>{service.title}</Link>
+                </h2>
+                <p className="font-sans text-sm md:text-base leading-loose text-black/70 mb-12 max-w-lg">
+                  {service.desc}
+                </p>
+                <Link 
+                  href={`/services/${service.slug}`}
+                  className="self-start text-xs font-sans tracking-[0.2em] uppercase border-b border-black pb-2 hover:opacity-50 transition-opacity"
+                >
+                  Discover Treatment
+                </Link>
+              </div>
+            </div>
           ))}
         </div>
       </section>
