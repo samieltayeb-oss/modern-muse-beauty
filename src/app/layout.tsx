@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import ReactLenis from "@/components/ReactLenis";
+import CustomCursor from "@/components/CustomCursor";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -18,7 +19,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="bg-muse-ivory text-muse-ink font-sans selection:bg-muse-nude selection:text-muse-ink">
+      <body className="bg-muse-ivory text-muse-ink font-sans selection:bg-black selection:text-white">
+        <CustomCursor />
         <ReactLenis root>
           {children}
         </ReactLenis>
