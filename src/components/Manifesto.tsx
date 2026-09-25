@@ -8,23 +8,23 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Manifesto() {
   const textRef = useRef<HTMLHeadingElement>(null);
+  const pRef = useRef<HTMLParagraphElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        textRef.current,
-        { opacity: 0, y: 50 },
+        [textRef.current, pRef.current],
+        { opacity: 0, y: 100 },
         {
           opacity: 1,
           y: 0,
-          duration: 2,
-          ease: "power3.out",
+          stagger: 0.2,
+          duration: 1.5,
+          ease: "power4.out",
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 70%",
-            end: "center center",
-            scrub: true,
+            start: "top 80%",
           },
         }
       );
@@ -34,14 +34,14 @@ export default function Manifesto() {
   }, []);
 
   return (
-    <section ref={containerRef} className="w-full py-40 md:py-64 bg-muse-ivory flex items-center justify-center px-6">
-      <div className="max-w-4xl text-center">
-        <h2 ref={textRef} className="font-serif text-4xl md:text-6xl lg:text-8xl tracking-tight leading-tight text-muse-ink">
-          Beauty, <br className="hidden md:block" />
-          <span className="italic text-muse-accent">considered.</span>
+    <section ref={containerRef} className="w-full py-40 md:py-64 bg-white flex flex-col items-center justify-center px-6 border-b border-black/5">
+      <div className="max-w-5xl text-center">
+        <h2 ref={textRef} className="font-serif text-5xl md:text-7xl lg:text-9xl tracking-tight leading-[1.1] text-black">
+          Beauty, <br />
+          <span className="italic text-black/60 font-light">considered.</span>
         </h2>
-        <p className="mt-12 text-sm md:text-base font-sans tracking-widest uppercase text-muse-muted max-w-lg mx-auto leading-relaxed">
-          A holistic wellness studio specializing in lymphatic drainage and kobido japanese facials.
+        <p ref={pRef} className="mt-16 text-xs md:text-sm font-sans tracking-[0.3em] uppercase text-black/40 max-w-lg mx-auto leading-loose">
+          A holistic wellness studio specializing in lymphatic drainage and Kobido Japanese facials.
         </p>
       </div>
     </section>

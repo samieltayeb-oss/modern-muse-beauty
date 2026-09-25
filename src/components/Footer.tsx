@@ -39,28 +39,31 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="w-full bg-muse-ink text-muse-ivory py-32 px-6 md:px-12 flex flex-col items-center justify-center text-center overflow-hidden">
-      <h2 className="font-serif text-5xl md:text-8xl lg:text-9xl mb-16 tracking-tight">
+    <footer className="w-full bg-black text-white py-32 md:py-48 px-6 md:px-12 flex flex-col items-center justify-center text-center overflow-hidden">
+      <h2 className="font-serif text-6xl md:text-8xl lg:text-[10rem] mb-24 tracking-tighter leading-[0.9]">
         Begin your <br/> transformation.
       </h2>
       
-      <button 
-        ref={buttonRef}
-        className="group relative flex items-center justify-center w-48 h-48 md:w-64 md:h-64 rounded-full border border-muse-stone/30 hover:border-muse-nude transition-colors duration-500 mb-32"
+      <a 
+        href="https://modern-muse-beauty.square.site/"
+        target="_blank"
+        rel="noreferrer"
+        ref={buttonRef as any}
+        className="group relative flex items-center justify-center w-48 h-48 md:w-72 md:h-72 rounded-full border border-white/20 hover:border-white transition-colors duration-700 mb-40"
       >
-        <span ref={textRef} className="font-sans text-xs md:text-sm tracking-[0.2em] uppercase text-muse-nude pointer-events-none">
+        <span ref={textRef} className="font-sans text-xs md:text-sm tracking-[0.3em] uppercase text-white pointer-events-none">
           Book Now
         </span>
-      </button>
+      </a>
 
-      <div className="w-full flex flex-col md:flex-row justify-between items-center md:items-end border-t border-muse-stone/20 pt-12 text-xs font-sans tracking-widest text-muse-muted uppercase">
-        <div className="mb-6 md:mb-0 text-center md:text-left">
+      <div className="w-full flex flex-col md:flex-row justify-between items-center md:items-end border-t border-white/10 pt-16 text-[10px] md:text-xs font-sans tracking-[0.2em] text-white/40 uppercase">
+        <div className="mb-8 md:mb-0 text-center md:text-left leading-loose">
           <p>909 5 Ave SW</p>
           <p>Calgary, AB T2P 3G5</p>
         </div>
-        <div className="mb-6 md:mb-0 flex gap-8">
-          <a href="#" className="hover:text-muse-nude transition-colors">Instagram</a>
-          <a href="#" className="hover:text-muse-nude transition-colors">Contact</a>
+        <div className="mb-8 md:mb-0 flex flex-col md:flex-row gap-4 md:gap-12 text-center">
+          <a href="https://www.instagram.com/modernmusebeauty_yyc" target="_blank" className="hover:text-white transition-colors">Instagram</a>
+          <a href="#" className="hover:text-white transition-colors">Contact</a>
         </div>
         <div>
           <p>&copy; {new Date().getFullYear()} Modern Muse Beauty</p>
