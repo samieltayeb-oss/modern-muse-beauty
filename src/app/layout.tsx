@@ -9,6 +9,11 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfa
 export const metadata: Metadata = {
   title: "Modern Muse Beauty | Calgary",
   description: "A holistic wellness studio specializing in lymphatic drainage, kobido japanese facials and cellulite reduction therapy.",
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' }
+    ],
+  },
 };
 
 export default function RootLayout({
