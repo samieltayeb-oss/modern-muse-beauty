@@ -69,8 +69,11 @@ export default function Footer() {
         <h2 className="font-serif text-[12vw] lg:text-[10vw] text-muse-ink/10 tracking-tighter leading-none mb-8 select-none">
           Modern Muse
         </h2>
-        <div className="w-full flex justify-between items-center text-[10px] font-sans tracking-[0.2em] uppercase text-muse-muted">
-          <span>&copy; {new Date().getFullYear()}</span>
+        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-sans tracking-[0.2em] uppercase text-muse-muted">
+          <span>&copy; {new Date().getFullYear()} Modern Muse Beauty</span>
+          <span>
+            Built by <a href="https://nexorayyc.io" target="_blank" rel="noreferrer" className="text-muse-ink hover:underline transition-all">NEXORA</a>
+          </span>
           <span>Calgary, Alberta</span>
         </div>
       </div>
