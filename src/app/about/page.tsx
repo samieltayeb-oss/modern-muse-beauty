@@ -39,19 +39,19 @@ export default function AboutPage() {
         <div className="max-w-3xl text-center space-y-12 font-sans text-lg md:text-xl text-muse-ink/80 leading-[2.2] fade-up">
           <h3 className="text-xs tracking-[0.4em] uppercase text-muse-muted mb-12">Our Philosophy</h3>
           <p>
-            Modern Muse Beauty is a sanctuary devoted to the art of transformation. We believe that true beauty is not merely aesthetic—it is a physiological response to deep, intentional care.
+            Modern Muse Beauty is a specialized wellness sanctuary located in the heart of Calgary, Alberta (YYC). As a dedicated Lymphatic Drainage Specialist and Esthetician, our practice is devoted to the art of holistic, non-invasive transformation.
           </p>
           <p>
-            Located in the heart of Calgary, Alberta, our studio specializes in holistic therapies that bridge the gap between ancient healing traditions and modern structural aesthetics. From the deeply rhythmic flow of Lymphatic Drainage to the precise, lifting strokes of the Kobido Japanese Facial Massage, every treatment is a meticulously choreographed sequence designed to restore your body’s natural harmony.
+            We bridge the gap between ancient healing traditions and modern structural aesthetics. From the deeply rhythmic flow of Lymphatic Drainage to the precise, lifting strokes of the Kobido Japanese Facial Massage, every treatment is a meticulously choreographed sequence designed to restore your body's natural harmony.
+          </p>
+          <p className="font-serif text-3xl md:text-4xl italic text-muse-ink/90 py-12">
+            "Educating beauty &amp; bodywork professionals in advanced techniques."
           </p>
           <p>
-            We are not just an esthetics studio. We are a space to exhale. A place to disconnect from the noise and reconnect with your intrinsic vitality. Our approach is entirely non-invasive, focusing on stimulating the lymphatic system, boosting collagen production, and sculpting the body's natural contours.
-          </p>
-          <p className="font-serif text-4xl md:text-5xl italic text-black py-12">
-            "Beauty is the physical manifestation of internal balance."
+            Beyond our in-studio client treatments, we are passionate about elevating the industry standard. We offer comprehensive education and training for beauty and bodywork professionals looking to master advanced lymphatic and sculpting techniques.
           </p>
           <p>
-            As a specialized, female-only studio, we provide an intimate, fiercely protected environment where every detail—from the temperature of the linens to the acoustic design of the room—is curated for deep restoration. 
+            Please note that our services are performed by an Esthetician, not a Registered Massage Therapist (RMT), and are exclusively available for female clients. We provide an intimate, fiercely protected environment where every detail is curated for deep restoration. 
           </p>
         </div>
       </section>

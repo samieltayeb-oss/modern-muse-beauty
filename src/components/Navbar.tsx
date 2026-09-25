@@ -35,12 +35,12 @@ export default function Navbar() {
         <div className="container mx-auto px-6 lg:px-24 flex justify-between items-center">
           
           {/* Logo */}
-          <Link href="/" className="relative h-12 md:h-16 w-56 md:w-72 z-50" onClick={() => setMenuOpen(false)}>
+          <Link href="/" className="relative h-16 md:h-20 w-64 md:w-80 z-50 transition-transform duration-500 hover:scale-[1.02]" onClick={() => setMenuOpen(false)}>
             <Image
               src="/images/logo.png"
               alt="Modern Muse Beauty"
               fill
-              className="object-contain object-left"
+              className="object-contain object-left contrast-125 drop-shadow-sm"
               priority
             />
           </Link>

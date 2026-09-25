@@ -12,12 +12,12 @@ export default function Footer() {
         
         {/* Left: Brand & Newsletter */}
         <div className="w-full lg:w-1/3 flex flex-col">
-          <Link href="/" className="relative h-10 w-56 mb-12">
+          <Link href="/" className="relative h-20 md:h-28 w-64 md:w-80 mb-12 -ml-2">
             <Image
               src="/images/logo.png"
               alt="Modern Muse Beauty"
               fill
-              className="object-contain object-left"
+              className="object-contain object-left contrast-125 drop-shadow-sm"
             />
           </Link>
           <p className="font-sans text-sm text-muse-muted leading-loose mb-12 max-w-sm">

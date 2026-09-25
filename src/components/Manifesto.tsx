@@ -44,12 +44,19 @@ export default function Manifesto() {
 
       <div className="max-w-4xl text-center relative z-10">
         <h2 ref={textRef} className="font-serif text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[1.2] text-muse-ink">
-          Beauty, <br className="md:hidden" />
-          <span className="italic font-light">considered.</span>
+          Lymphatic Drainage <br/>
+          <span className="italic font-light">&amp; Kobido Facials.</span>
         </h2>
-        <p ref={pRef} className="mt-12 text-sm font-sans tracking-widest uppercase text-muse-muted max-w-lg mx-auto leading-loose">
-          A holistic wellness studio specializing in lymphatic drainage and Kobido Japanese facials.
-        </p>
+        <div ref={pRef} className="mt-12 flex flex-col items-center gap-4">
+          <p className="text-xs font-sans tracking-[0.3em] uppercase text-muse-ink border border-muse-line px-6 py-2 rounded-full">
+            YYC 📍
+          </p>
+          <p className="text-sm font-sans tracking-widest uppercase text-muse-muted max-w-lg mx-auto leading-loose mt-4">
+            Lymphatic Drainage Specialist ✨ <br/>
+            Esthetician (Not RMT) <br/>
+            Educating beauty & bodywork professionals in advanced techniques 🤍
+          </p>
+        </div>
       </div>
     </section>
   );
